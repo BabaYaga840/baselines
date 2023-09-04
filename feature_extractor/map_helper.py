@@ -6,7 +6,7 @@ from nmmo.core.tile import TileState
 from nmmo.entity.entity import EntityState
 from nmmo.lib import material
 from nmmo.systems.item import ItemState
-from nmmo.io import action
+from nmmo.core import action
 
 from feature_extractor.entity_helper import EntityHelper
 
@@ -30,7 +30,7 @@ HOSTILE_REPR = 1.
 POISON_CLIP = 20.
 
 DEPLETION_MAP = {
-  material.Forest.index: material.Scrub.index,
+  material.Void.index: material.Scrub.index,
   material.Tree.index: material.Stump.index,
   material.Ore.index: material.Slag.index,
   material.Crystal.index: material.Fragment.index,
@@ -174,7 +174,7 @@ class MapHelper:
       for j in range(nearby_dist):
         # (i,j) = (4,4) is the provided (row, col)
         if abs(i-nearby_dist//2) + abs(j-nearby_dist//2) <= nearby_dist//2:
-          feat_arr.append(near_tile_map[i, j] == material.Forest.index) # food_arr
+          feat_arr.append(near_tile_map[i, j] == material.Tree.index) # food_arr
           feat_arr.append(near_tile_map[i, j] == material.Water.index) # water_arr
           feat_arr.append(near_tile_map[i, j] == material.Herb.index) # herb_arr
           feat_arr.append(near_tile_map[i, j] == material.Fish.index) # fish_arr
