@@ -56,7 +56,7 @@ def train(
         epoch_end_callback=None,
         resume_from_path=None,
         run_name=None,
-        use_serial_vecenv=False,
+        use_serial_vecenv=True,
     ):
     program_start = time.time()
     env_id = binding.env_name
